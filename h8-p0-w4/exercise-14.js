@@ -15,9 +15,11 @@ function naikAngkot(arrPenumpang) {
   for(var i=0;i<arrPenumpang.length;i++){
       var obj ={}
       var total =0
+
     obj["penumpang"]=arrPenumpang[i][0]
     obj["naikDari"]=arrPenumpang[i][1]
     obj["tujuan"]=arrPenumpang[i][2]
+    
     for(var j=0;j<rute.length;j++){
         if(arrPenumpang[i][1]==rute[j]){
             total = j
@@ -27,6 +29,7 @@ function naikAngkot(arrPenumpang) {
         }
     }
     obj["bayar"]= total * 2000
+    
     angkot.push(obj)
   }
   return angkot

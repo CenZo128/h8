@@ -1,7 +1,51 @@
 
 function shoppingTime(memberId, money) {
   // you can only write your code here!
-    
+    var result={}
+    var sale = [
+      {
+        item:'Sepatu Staccatu'   ,
+        price: 1500000
+      },
+      {
+        item:'Baju Zara '   ,
+        price: 500000
+      },{
+        item:'Baju H&N '   ,
+        price: 250000
+      },{
+        item:'Sweater Uniklooh'   ,
+        price: 175000
+      },{
+        item:'Casing Handphone'   ,
+        price: 50000
+      },
+    ]
+    if(memberId==''|| memberId== undefined || money== undefined ){
+      return 'Mohon maaf, toko X hanya berlaku untuk member saja'
+    }
+    else{
+      if(money<50000 ){
+        return  'Mohon maaf, uang tidak cukup'
+      }  
+      else{
+        result["memberId"]= memberId
+        result["money"]= money
+        var items =[]
+      for(var i=0; i<sale.length;i++){
+        if(money>=sale[i].price){
+          money -= sale[i].price
+          items.push(sale[i].item)
+        }
+  
+      }
+        result["listPurchased"]=items
+        result["changeMoney"]=money 
+      
+      }
+    }
+
+    return result
 }
 
 // TEST CASES

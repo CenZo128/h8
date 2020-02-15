@@ -22,7 +22,6 @@ function digitPerkalianMinimum(angka) {
   }else
     return jumlahFaktor[jumlahFaktor.length-1]
 }
-
 // TEST CASES
 console.log(digitPerkalianMinimum(24)); // 2
 console.log(digitPerkalianMinimum(90)); // 3
