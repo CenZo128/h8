@@ -11,7 +11,7 @@ function changeMe(arr) {
     for(var j=0;j<keys.length;j++){
       if(j==keys.length-1){
         
-        if(arr[i][j]== undefined || arr[i][j]>2020){
+        if(arr[i][j]== undefined){
           result[`${keys[j]}`]='Invalid Birth Year'
           
         }

@@ -5,12 +5,7 @@ function ubahHuruf(kata) {
   for(var i=0;i<kata.length;i++){
         for(var j=0;j<huruf.length;j++){
             if(kata[i]==huruf[j]){
-                if(kata[i]=='z'){ 
-                    string += 'a'
-                    
-                }
-                else string += huruf[j+1]
-                 
+                string += huruf[j+1]
             }
         }
     }
@@ -23,5 +18,3 @@ console.log(ubahHuruf('developer')); // efwfmpqfs
 console.log(ubahHuruf('javascript')); // kbwbtdsjqu
 console.log(ubahHuruf('keren')); // lfsfo
 console.log(ubahHuruf('semangat')); // tfnbohbu
-console.log(ubahHuruf('z')); // a
-

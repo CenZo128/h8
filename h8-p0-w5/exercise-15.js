@@ -9,9 +9,9 @@ function highestScore(students) {
       kelas[students[i].class].name=students[i].name
       kelas[students[i].class].score=students[i].score
     }else{
-      if(students[i].score>kelas[students[i].class].score){
-        kelas[students[i].class].name = students[i].name
-        kelas[students[i].class].score = students[i].score
+      if(students[i].score>kelas[students[i].score]){
+        kelas[students[i].name] = students[i].name
+        kelas[students[i].score] = students[i].score
       }
     }
   }
@@ -37,7 +37,7 @@ console.log(highestScore([
   },
   {
     name: 'Anastasia',
-    score: 100,
+    score: 78,
     class: 'wolves'
   }
 ]));

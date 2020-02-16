@@ -13,26 +13,18 @@ function digitPerkalianMinimum(angka) {
   while(x< (faktor.length-1)/2){
     var temp=''
     temp=String(faktor[x]) + String(faktor[y])
-  console.log(temp)
-    
     jumlahFaktor.push(temp.length)
     x++
     y--
   }
   if(jumlahFaktor==''){
     return 2
-  }else{
-    var n = jumlahFaktor[0]
-    for(var a=0;a<jumlahFaktor.length;a++){
-      if(n>jumlahFaktor[a])
-        n = jumlahFaktor[a]
-    }
-  }
-    return n
+  }else
+    return jumlahFaktor[jumlahFaktor.length-1]
 }
 // TEST CASES
 console.log(digitPerkalianMinimum(24)); // 2
 console.log(digitPerkalianMinimum(90)); // 3
-console.log(digitPerkalianMinimum(200)); // 2
+console.log(digitPerkalianMinimum(20)); // 2
 console.log(digitPerkalianMinimum(179)); // 4
 console.log(digitPerkalianMinimum(1)); // 2
