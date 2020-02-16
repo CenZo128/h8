@@ -11,19 +11,24 @@ function checkAB(num) {
         else if(num[i]=='b')
             posB.push(i)
     }
-
+    console.log(posA,posB)
+    var check
     for(var j=0;j<posA.length;j++){
         if(posB[j]==undefined || posB[j]==''){
             posB[j]=0
         }
         for(var k=0;k<posB.length;k++){
             
-            if(Math.abs(posA[j]-posB[k])>=3 )
-                return true
-            else return false    
+            if(Math.abs(posA[j]-posB[k])==4 ){
+                check= true;
+                break;}
+            else 
+                check= false    
         }
 
     }
+    if(check==true) return true
+    else return false
 }
 
 // TEST CASES
