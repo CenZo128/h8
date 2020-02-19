@@ -27,8 +27,10 @@ function checkAB(num) {
         }
 
     }
-    if(check==true) return true
-    else return false
+    // if(check==true) return true
+    // else return false
+
+    return (check==true) ? true : false;
 }
 
 // TEST CASES

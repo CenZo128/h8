@@ -9,6 +9,27 @@ Tidak boleh memakai built-in function
 
 function mapLetters(string) {
     //code goes here
+    var result = {}
+    var temp = []
+    
+    for (var i = 0; i < string.length; i++) {
+        if (result[string[i]] === undefined) {
+            result[string[i]] = []
+            temp.push(string[i])
+        }
+    }
+    for (var j = 0; j < temp.length; j++) {
+        var arr = []
+        for (var k = 0; k < string.length; k++) {
+
+            if (temp[j] == string[k]) {
+                arr.push(k)
+            }
+        }
+        result[temp[j]] = arr
+
+    }
+    return result
 }
 
 console.log(mapLetters("dodo")) // { d: [0, 2], o: [1, 3] }

@@ -6,6 +6,11 @@ lalu return nama ranking #1 secara rata".
 
 function getBestStudent(scores) {
     //code goes here
+    // for(var key in scores){
+    //     console.log(key)
+    // }
+    var arr = Object.keys(scores)
+    return arr
 }
 
 console.log(getBestStudent({

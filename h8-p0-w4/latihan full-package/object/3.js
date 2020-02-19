@@ -8,6 +8,15 @@ No built-in function
 
 function getFrequencies(arr) {
     //code goes here
+    var kelas={}
+    for(let i=0;i<arr.length;i++){
+        if(kelas[arr[i]]===undefined){
+          kelas[arr[i]]=1
+        }else{
+            kelas[arr[i]]++
+          }
+      }
+      return kelas
 }
 
 
