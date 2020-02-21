@@ -100,8 +100,8 @@ function filterPirates(pirates) {
 
   return result
 
-
 }
+
 
 function checkCapital(a){
   var capital="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
