@@ -1,103 +1,58 @@
-// for(var i =0; i<5; i++){
-//     var temp='';
-//     for(var j=5;j>i;j--){
-//       temp+= " "
-//     }
-//     for(var k=0; k<i+1; k++){
-//       temp+="*"
-//     }
-//     console.log(temp)
-//   }
-//   console.log()
-
-//   for(var i =0; i<5; i++){
-//     var temp='';
-
-//     for(var k=0; k<i+1; k++){
-//       temp+=" "
-//     }
-//     for(var j=5;j>i;j--){
-//       temp+= "*"
-//     }
-//     console.log(temp)
-//   }
-
 /**
- * Pseudocode dan kode program jika:
+ * Best Bang for Your Buck
+ * Buat sebuah program yang akan mengevaluasi produk smartphone mana yang paling sesuai untuk konsumen berdasarkan:
+ *   1. Budget Friendly,
+ *   2. PPI atau Pixel Per Inch,
+ *   3. Internet Rating,
+ *   4. Performance
+ * Nilai evaluasi tertinggi yang dapat diberikan untuk sebuah smartphone adalah 1.0.
  * 
- * var School = {
- *   name: 'SMA Negeri 8 Jakarta',
- *   address: 'Jl. Taman Bukit Duri No.2',
- *   headmaster: 'Acong',
- *   teachers: ['Acong', 'Djoko', 'Sitorus', 'Painem', 'Sisingamangaraja', 'Baja Hitam', 'Radjagukguk', 'I Made Gunawangsa', 'Angka'],
- *   subjects: ['Matematika', 'BhsInggris', 'BhsIndonesia', 'Fisika', 'Kimia', 'Biologi', 'Ekonomi', 'Geografi', 'Sejarah', 'Sosiologi'],
- *   classes: ['X1', 'X2', 'X2', 'X3', 'XIIPA1', 'XIIPA2', 'XIIPS1', 'XIIPS2', 'XIIIPA1', 'XIIIPA2', 'XIIIPS1', 'XIIIPS2'];
- * }
+ * Perhitungan kriteria Budget Friendly adalah sebagai berikut: (Uang Konsumen - Harga Smartphone) / Uang Konsumen.
+ * Nilai PPI berada dalam rentang 300 - 1000. Semakin tinggi nilai PPI smartphone, semakin baik nilai evaluasinya.
+ * Nilai Internet Rating berada dalam rentang 1 - 5. Semakin tinggi nilai Internet Rating smartphone, semakin baik nilai evaluasinya.
+ * Nilai Performance berada dalam rentang 1 - 10. Semakin tinggi nilai Performance, semakin baik nilai evaluasinya.
  * 
+ * Program akan membutuhkan tiga input yaitu:
+ *   1. Sebuah object evaluationProfile yang merupakan bobot dari masing-masing kriteria penilaian.
+ *      Contoh:
+ *        var evaluationProfile = {
+ *          budgetFriendly: 0.15,
+ *          ppi: 0.25,
+ *          internetRating: 0.15,
+ *          performance: 0.45
+ *        }
+ *   2. Sebuah Number yaitu Uang Konsumen.
+ *   3. Array multidimensi nx5 yang berisi list smartphone.
+ *      Contoh:
+ *        [
+ *          // Nama Smartphone, Harga Smartphone, PPI, Internet Rating, Performance
+ *          ['Nokia'          , 5000000         , 500, 4              , 4          ],
+ *          ['LG'             , 4000000         , 600, 6              , 6          ],
+ *          ['Shimizu'        , 1000000         , 300, 3              , 3          ],
+ *          ['Changhong'      , 6000000         , 777, 4              , 7          ]
+ *        ]
  * 
- * Buat properti baru untuk School yaitu:
- *   - x1Teachers, x2Teachers, x3Teachers, dst... Assign guru (bebas) ke masing-masing properti, dengan ketentuan satu guru boleh merangkap lebih dari 1 kelas
- *   - matematikaTeachers, bhsInggrisTeachers, bhsIndonesiaTeachers, dst... Assign guru (bebas) ke masing-masing properti, dengan ketentuan satu guru boleh merangkap lebih dari 1 kelas
- * 
- * Berdasarkan properti yang telah dibuat, tetukan:
- *   - Guru mana yang mengajar subject paling banyak, guru mana yang mengajar subject paling sedikit
- *   - Guru mana yang mengajar kelas paling banyak, guru mana yang mengajar kelas paling sedikit
- * 
- * Buat sebuah properti baru yaitu salaries di mana urutannya sama dengan properti teachers. Misal, teachers[0] memiliki gaji salaries[1]. Ketentuan perhitungan gaji adalah:
- *   - Tiap mata pelajaran memiliki nilai 10000
- *   - Tiap kelas memiliki nilai 7500
- */
-
-var School = {
-    name: 'SMA Negeri 8 Jakarta',
-    address: 'Jl. Taman Bukit Duri No.2',
-    headmaster: 'Acong',
-    teachers: ['Acong', 'Djoko', 'Sitorus', 'Painem', 'Sisingamangaraja', 'Baja Hitam', 'Radjagukguk', 'I Made Gunawangsa', 'Angka'],
-    subjects: ['Matematika', 'BhsInggris', 'BhsIndonesia', 'Fisika', 'Kimia', 'Biologi', 'Ekonomi', 'Geografi', 'Sejarah', 'Sosiologi'],
-    classes: ['X1', 'X2', 'X3', 'X4', 'XIIPA1', 'XIIPA2', 'XIIPS1', 'XIIPS2', 'XIIIPA1', 'XIIIPA2', 'XIIIPS1', 'XIIIPS2'], 
-    // classTeachers:[],
-    // subjectTeachers:[]
-}
-function randomInt(min, max) {
-    return Math.floor(Math.random() * (+max - +min) + +min);
-} 
-
-
-function buatProperties(school) {
-
-    for (var i = 0; i < school.classes.length; i++) {
-        School[school.classes[i].toLowerCase() + "Teachers"] = []
-    }
-    for (var j = 0; j < school.subjects.length; j++) {
-        School[school.subjects[j].toLowerCase() + "Teachers"] = []
-    }
-    
-    // for (var i = 0; i < school.classes.length; i++) {
-    //     School.classTeachers[school.classes[i].toLowerCase() + "Teachers"] = []
-    // }
-    // for (var j = 0; j < school.subjects.length; j++) {
-    //     School.subjectTeachers[school.subjects[j].toLowerCase() + "Teachers"] = []
-    // }
-    
-    // return school
-}
-buatProperties(School);
-// console.log(School);
-
-function insertClassTeachers(school){
-    // buatProperties(School);
-    // for (let k =0; k < school.classes.length; k++) {
-    //     console.log(school.classes[k].toLowerCase() + 'Teachers');
-    // }
-    for (let i = randomInt(0, school.teachers.length); i > 0; i--) {
-        
-        school[school.classes[i].toLowerCase() + 'Teachers'].push(school.teachers[i]);
-        
-      }
-    // return school
-}
-
-insertClassTeachers(School);
-
-// console.log(buatProperties(School))
-console.log(School)
+ * Jika harga smartphone tidak dapat terbeli oleh uang konsumen, maka smartphone tersebut diabaikan.
+ * Output yang diharapkan dari program adalah seperti di bawah:
+ *   {
+ *     name: 'Shimizu',
+ *     price: 1000000,
+ *     ppi: 300,
+ *     performance: 3
+ *     evaluation: 7
+ *   }
+ */function smartphoneEvaluation(evaluationProfile, uangKonsumen, smartphones) {}// Test case 1
+ var evaluationProfile = { budgetFriendly: 0.15, ppi: 0.25, internetRating: 0.15, performance: 0.45 };
+ var smartphones = [['Nokia', 5000000, 500, 4, 4], ['LG', 4000000, 300, 4, 1], ['Changhong', 1000000, 300, 3, 3], ['Apel', 6000000, 777, 4, 7]];
+ console.log(smartphoneEvaluation(evaluationProfile, 4500000, smartphones));
+ // { name: 'Changhong', price: 1000000, ppi: 300, performance: 3, evaluation: 0.29166666666666663 }
+ console.log(smartphoneEvaluation(evaluationProfile, 10000000, smartphones));
+ // { name: 'Apel', price: 6000000, ppi: 777, performance: 7, evaluation: 0.7110000000000001 }// Test case 2
+ var evaluationProfile = { budgetFriendly: 0.25, ppi: 0.25, internetRating: 0.25, performance: 0.25 };
+ var smartphones = [['Nokia', 5000000, 500, 4, 4], ['LG', 4000000, 300, 4, 1], ['Changhong', 1000000, 300, 3, 3], ['Apel', 6000000, 777, 4, 7]];
+ console.log(smartphoneEvaluation(evaluationProfile, 4500000, smartphones));
+ // { name: 'Changhong', price: 1000000, ppi: 300, performance: 3, evaluation: 0.375 }
+ console.log(smartphoneEvaluation(evaluationProfile, 10000000, smartphones));
+ // { name: 'Apel', price: 6000000, ppi: 777, performance: 7, evaluation: 0.6926666666666667 }
+ console.log(smartphoneEvaluation(evaluationProfile, 1000000, smartphones));
+ // { name: 'Changhong', price: 1000000, ppi: 300, performance: 3, evaluation: 0.375 }
