@@ -10,6 +10,35 @@ Rules:
 
 function getTeman(data, template) {
     // your code here..
+    let obj = {}, temp = '', abc =[]
+    let keys = [], values = [], result = []
+    for (var i = 0; i < template.length; i++) {
+
+        if (template[i] == ',' || i == template.length - 1) {
+            temp+=template[i]
+            keys.push(temp)
+            temp = ''
+        }
+        else {
+            temp += template[i]
+        }
+    }
+
+    for (var i = 0; i < data.length; i++) {
+        abc = []
+        for (var j = 0; j < data[i].length; j++) {
+            if (data[i][j] == ',' || j == data[i].length - 1) {
+                temp+=data[i][j]
+                abc.push(temp)
+                temp = ''
+            }
+            else {
+                temp += data[i][j]
+            }
+        }
+        values.push(abc)
+    }
+    return [keys, values]
 }
 
 const datas = [

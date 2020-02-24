@@ -21,10 +21,24 @@
  *
  * Rules:
  *  - Tidak boleh menggunakan built-in function array. .map, .filter, .reduce, .sort
- */
+ **/
 ​
-function groupStage(teams) {
+function groupStage(teams){
   // Insert your code here
+  let result=[]
+  // for (let index = 0; index < teams.length; index++) {
+  //   var tempObj={}
+  //   tempObj.team=teams[index].name
+  //   tempObj.score=0
+  //   for (let i = 0; i < teams[index].matches.length; i++) {
+  //     if(teams[index].matches[i].status=='win') 
+  //       tempObj.score+=3
+  //     else
+  //       tempObj.score-=1
+  // }
+    // result.push(tempObj)    
+  // }
+  // return teams
 }
 ​
 var group1 = [
@@ -192,7 +206,7 @@ var group2 = [
     ]
   }
 ]
-console.log(groupStage(group2))
+// console.log(groupStage(group2))
 /**
  * { '1': { team: 'RRQ', score: 9 },
   '2': { team: 'ONIC', score: 5 },

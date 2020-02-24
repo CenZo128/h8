@@ -23,6 +23,20 @@ Ouput array 2D:
 */
 function converstionTime(list) {
     // your code here..
+    var total=0
+    let simpan=[], temp=''
+    let change = function(a){
+        
+        for(var i=0;i<a.length;i++){
+            if(a[i]==':' || i==a.length-1){
+                temp+=a[i]
+            }
+            else{
+                temp+=a[i]
+            }
+        }
+    }
+    return total
 }
 
 /* Function sortByRating akan mengurutkan movies berdasarkan ratingnya secara descanding

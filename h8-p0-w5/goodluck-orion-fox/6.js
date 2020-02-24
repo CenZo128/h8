@@ -9,10 +9,24 @@ Dilarang menggunakan built-in function selain .push()
 
 function angkaPrima(angka) {
     // your code here
+    var n=0
+    for(var i=1;i<=angka;i++){
+        if(angka%i==0) n++
+    }
+    return (n==2) ? true : false;
+    
 }
 
 function angkaPrimaRange(num) {
     // your code here
+    let x=1, temp =[]
+    while(x<num){
+        if(angkaPrima(x)==true || x==1){
+            temp.push(x)
+        }
+        x++
+    }
+    return temp
 }
 
 // TEST CASES

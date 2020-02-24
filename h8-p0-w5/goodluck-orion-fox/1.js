@@ -13,6 +13,17 @@ Contoh ada pada test case.
 
 function titleGivers(targetArr, title) {
   // your code here..
+  var result=[]
+  if(title[0]==','){
+    for(var i=0;i<targetArr.length;i++){
+      result.push(`${targetArr[i]}${title}`)
+    }
+  }else{
+    for(var i=0;i<targetArr.length;i++){
+      result.push(`${title} ${targetArr[i]}`)
+    }
+  }
+  return result
 }
 
 console.log(titleGivers(['Awtian Akbar', 'Kobayakawa Sena', 'Yoichi Hiruma'], 'Mr.'));

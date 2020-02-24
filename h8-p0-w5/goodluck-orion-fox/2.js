@@ -13,6 +13,18 @@ Proses :
 
 function interleave(data) {
     // your code here
+    var resuult = []
+    if (data == '') {
+        return data
+    }
+    else {
+        for (var i = 0; i < data[0].length; i++) {
+            for (var j = 0; j < data.length; j++) {
+                resuult.push(data[j][i])
+            }
+        }
+    }
+    return resuult
 }
 
 console.log(interleave([[1, 2, 3], ["c", "d", "e"]]))
