@@ -23,20 +23,30 @@ Ouput array 2D:
 */
 function converstionTime(list) {
     // your code here..
-    var total=0
+    var total=[]
     let simpan=[], temp=''
     let change = function(a){
-        
+
         for(var i=0;i<a.length;i++){
-            if(a[i]==':' || i==a.length-1){
-                temp+=a[i]
+            if(a[i]==':'){
+                simpan.push(Number(temp))
+                temp=''
             }
             else{
                 temp+=a[i]
             }
+            if(i==a.length-1){
+                simpan.push(Number(temp))
+            }
+            
         }
+        return simpan[0]*60+simpan[1]
     }
-    return total
+    for(var j=0;j<list.length;j++){
+        list[j][2]=change(list[j][2])
+    }
+    // total=change("1:30")
+    return list
 }
 
 /* Function sortByRating akan mengurutkan movies berdasarkan ratingnya secara descanding
@@ -50,6 +60,7 @@ ouput berupa array of array
 */
 function sortByRating(list) {
     // your code here..
+    
 }
 
 
@@ -79,7 +90,8 @@ var cartoons = [
     [5, 'Zoopio', '1:20', 2015]
 ]
 
-console.log(getListMovies(cartoons))
+// console.log(getListMovies(cartoons))
+console.log(converstionTime(cartoons))
 /*
 {
     '2013': [

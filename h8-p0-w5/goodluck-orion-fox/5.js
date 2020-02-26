@@ -22,25 +22,34 @@
  * Rules:
  *  - Tidak boleh menggunakan built-in function array. .map, .filter, .reduce, .sort
  **/
-​
 function groupStage(teams){
   // Insert your code here
   let result=[]
-  // for (let index = 0; index < teams.length; index++) {
-  //   var tempObj={}
-  //   tempObj.team=teams[index].name
-  //   tempObj.score=0
-  //   for (let i = 0; i < teams[index].matches.length; i++) {
-  //     if(teams[index].matches[i].status=='win') 
-  //       tempObj.score+=3
-  //     else
-  //       tempObj.score-=1
-  // }
-    // result.push(tempObj)    
-  // }
-  // return teams
+  for (let index = 0; index < teams.length; index++) {
+    var tempObj={}
+    tempObj.team=teams[index].name
+    tempObj.score=0
+    for (let i = 0; i < teams[index].matches.length; i++) {
+      if(teams[index].matches[i].status=='win') 
+        tempObj.score+=3
+      else
+        tempObj.score-=1
+  }
+    result.push(tempObj)    
+  }
+
+  for(var a=0;a<result.length;a++){
+    for(var b=0;b<result.length;b++){
+      // if(result[b].score<result[b+1].score){
+      //   tempObj=result[b+1]
+      //   result[b+1]=result[b]
+      //   result[b]=tempObj
+      // }
+    }
+
+  }
+  return result
 }
-​
 var group1 = [
   {
     name: 'Evos',
@@ -111,9 +120,7 @@ var group1 = [
     ]
   }
 ]
-​
 console.log(groupStage(group1))
-​
 /**
  * {
  *  '1': {
@@ -134,8 +141,6 @@ console.log(groupStage(group1))
  * }
  * }
  */
-​
-​
 var group2 = [
   {
     name: 'Evos',
